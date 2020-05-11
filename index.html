@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Project Placeholder</title>
     <style>
@@ -16,12 +16,21 @@
         }
       }
     </style>
-  </head>
-  <body>
-    <h1>placeholder</h1><br>
-    <img src="https://i.imgur.com/kDDFvUp.png" class="rotate" width="100" height="100" /><br>
-    
-    <img src="pictures/background_grass.jpg" class="back" />
-    <img src="pictures/woman.png" class="front" />
-  </body>
+  <script src="https://unpkg.com/merge-images"></script>
+</head>
+<body>
+  <h1>placeholder</h1><br>
+  <img src="https://i.imgur.com/kDDFvUp.png" class="rotate" width="100" height="100" /><br>
+  
+  <img src="pictures/background_grass.jpg" class="back" />
+  <img src="pictures/woman.png" class="front" />
+  
+  <img />
+  
+  <script>
+    import mergeImages from 'merge-images';
+    mergeImages(['/pictures/body.png', '/pictures/eyes.png']).then(b64 => document.querySelector('img').src = b64);
+  </script>
+  
+</body>
 </html>
