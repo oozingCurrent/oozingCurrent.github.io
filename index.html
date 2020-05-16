@@ -19,7 +19,7 @@
 </head>
 <body>
     
-    <h1>placeholder start</h1><br></br></br>
+    <h1 id="placeholder">placeholder start</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body">
 <img src="/pictures/eyes.png" id="eyes">
@@ -47,9 +47,9 @@ Your browser does not support the HTML5 canvas tag.
     };
     
 //     function download1() {
-//         var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-//         window.location.href = image;
-//         document.getElementById("x").src=image;
+//         var image1 = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+//         document.write = image1;
+// //         document.getElementById("x").src=image;
 //     };
     
     function download() {
@@ -59,11 +59,11 @@ Your browser does not support the HTML5 canvas tag.
     window.onload = renderCanvas();
     
     function download1() {
-        var download = document.getElementById("download");
+        var download = document.getElementById("placeholder");
         var image1 = document.getElementById("myCanvas").toDataURL("image/png").replace("image/png", "image/octet-stream");
         download.setAttribute("href", image1);
         //download.setAttribute("download","archive.png");
-    }
+    };
 </script>    
 
 <button class="button renderCanvas" id="button_render" onclick="renderCanvas()">Render</button>
