@@ -23,6 +23,10 @@
 <h1>placeholder</h1><br>
 </br></br>
 
+<img src="/pictures/body.png" id="body">
+<img src="/pictures/eyes.png" id="eyes">
+<img src="/pictures/mouth.png" id="mouth">
+
 <canvas id="myCanvas" width="256" height="256">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
@@ -31,12 +35,12 @@ Your browser does not support the HTML5 canvas tag.
     window.onload = function() {
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
-    var back = document.getElementById("body");
-    var front = document.getElementById("eyes");
-    var front2 = document.getElementById("mouth");
-    ctx.drawImage(back, 0,0);
-    ctx.drawImage(front, 0,0);
-    ctx.drawImage(front2, 0,0);
+    var body = document.getElementById("body");
+    var eyes = document.getElementById("eyes");
+    var mouth = document.getElementById("mouth");
+    ctx.drawImage(body, 0,0);
+    ctx.drawImage(eyes, 0,0);
+    ctx.drawImage(mouth, 0,0);
     window.location = canvas.toDataURL("image/png");
 //     window.location = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 //     window.location.href = image;
