@@ -40,12 +40,11 @@ Your browser does not support the HTML5 canvas tag.
     ctx.drawImage(eyes, 0,0);
     ctx.drawImage(mouth, 0,0);
 //     window.location = canvas.toDataURL("image/png");
-    window.location = canvas.toDataURL("image/png");
-    window.location.href = image;
     };
     
     function download() {
         document.getElementById("button").innerHTML = "done";
+        window.location = canvas.toDataURL("image/png");
     };
 </script>    
 
