@@ -55,18 +55,20 @@ Your browser does not support the HTML5 canvas tag.
     function download() {
         document.write('<img src="'+image+'"/>');
     };
-    function download1(dataurl, filename) {
-      var a = document.createElement("a");
-      a.href = dataurl;
-      a.setAttribute("download", filename);
-      a.click();
-    };
+    
     window.onload = renderCanvas();
-    download1("data:image/png,image", "avatar.png");
+    
+    function download1() {
+        var download = document.getElementById("download");
+        var image1 = document.getElementById("myCanvas").toDataURL("image/png").replace("image/png", "image/octet-stream");
+        download.setAttribute("href", image1);
+        //download.setAttribute("download","archive.png");
+    }
 </script>    
 
 <button class="button renderCanvas" id="button_render" onclick="renderCanvas()">Render</button>
 <button class="button download" id="button_download" onclick="download()">Download</button>
+<button class="button download1" id="button_download1" onclick="download1()">Download 1</button>
 
 </body>
 </html>
