@@ -35,7 +35,7 @@
     
 <!--   <img /> -->
     
-<!--     </br></br> --> -->
+
 <!-- <p>canvas!</p></br> -->
 
 <canvas id="myCanvas" width="256" height="256">
@@ -49,8 +49,10 @@ Your browser does not support the HTML5 canvas tag.
     var ctx = canvas.getContext("2d");
     var back = document.getElementById("body");
     var front = document.getElementById("eyes");
-    ctx.drawImage(img, 15, 15);
-    ctx.drawImage(img2, 15, 15);
+    var front2 = document.getElementById("eyes");
+    ctx.drawImage(back, 0,0);
+    ctx.drawImage(front, 0,0);
+        ctx.drawImage(front2, 0,0);
 
 };
 </script>
