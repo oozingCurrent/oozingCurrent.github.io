@@ -34,8 +34,7 @@ Your browser does not support the HTML5 canvas tag.
 <script>
     var image;
     
-//     window.onload = function() {
-        function startCanvas() {
+    function renderCanvas() {
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
         var body = document.getElementById("body");
@@ -47,20 +46,21 @@ Your browser does not support the HTML5 canvas tag.
         image = canvas.toDataURL("image/png");
     };
     
-    function download() {
+//     function download1() {
 //         var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 //         window.location.href = image;
-        document.getElementById("x").src=image;
-    };
+//         document.getElementById("x").src=image;
+//     };
     
-    function test() {
+    function download() {
         document.write('<img src="'+image+'"/>');
     };
+    
+    window.onload = renderCanvas();
 </script>    
 
-<button class="button startCanvas" id="button_start" onclick="startCanvas()">Create</button>
-<button class="button test" id="button_test" onclick="test()">TEST</button>
-<button class="button download" id="button_download" onclick="download()">Combine</button>
+<button class="button renderCanvas" id="button_render" onclick="renderCanvas()">Render</button>
+<button class="button download" id="button_download" onclick="download()">Download</button>
 
 </body>
 </html>
