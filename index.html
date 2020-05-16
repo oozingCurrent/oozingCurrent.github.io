@@ -19,31 +19,15 @@
   <script src="https://unpkg.com/merge-images"></script>
 </head>
 <body>
-<!--   <h1>placeholder</h1><br>
-<!--   <img src="https://i.imgur.com/kDDFvUp.png" class="rotate" width="100" height="100" /><br> -->
-    <h1>2</h1>
-  <img src="/pictures/body.png" class="back" id="body" />
-  <img src="/pictures/eyes.png" class="front" id="eyes" />
-      <img src="/pictures/mouth.png" class="front" id="mouth" />
-    </br>    </br>    </br>
-<!--   <img /> -->
-  
-<!--   <script type="text/javascript"> -->
-<!--     import mergeImages from 'merge-images'; -->
-<!--     mergeImages(['/pictures/body.png', '/pictures/eyes.png']).then(b64 => document.querySelector('img').src = b64); -->
-<!--   </script> -->
     
-<!--   <img /> -->
-    
-
-<!-- <p>canvas!</p></br> -->
+<h1>placeholder</h1><br>
+</br></br>
 
 <canvas id="myCanvas" width="256" height="256">
-<!-- style="border:10px solid #d3d300;"> -->
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-    <script>
+<script>
     window.onload = function() {
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -53,13 +37,12 @@ Your browser does not support the HTML5 canvas tag.
     ctx.drawImage(back, 0,0);
     ctx.drawImage(front, 0,0);
     ctx.drawImage(front2, 0,0);
-
 //     window.location = canvas.toDataURL("image/png");
-        window.location = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-        window.location.href = image;
+    window.location = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = image;
 };
-</script>
-    
+
+</script>    
     
 </body>
 </html>
