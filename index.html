@@ -24,7 +24,7 @@
 <img src="/pictures/body.png" id="body">
 <img src="/pictures/eyes.png" id="eyes">
 <img src="/pictures/mouth.png" id="mouth">
-
+<img id="x">
 
 
 <canvas id="myCanvas" width="256" height="256">
@@ -46,16 +46,22 @@ Your browser does not support the HTML5 canvas tag.
     };
     
     function download() {
-        var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-        window.location.href = image;
+//         var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+//         window.location.href = image;
+        document.getElementById("x").src= canvas.toDataURL("image/png");
         document.getElementById("button").innerHTML = "done";
 //         window.location = canvas.toDataURL("image/png");
+    };
+    
+    function test() {
+        document.getElementById("x").src="https://unsplash.com/photos/5Oe8KFH5998/download";
     };
 </script>    
 
 <h1>placeholder end</h1>
 <button class="button startCanvas" id="button_start" onclick="startCanvas()">Start 1</button>
 <button class="button download" id="button" onclick="download()">Download</button>
+<button class="button test" id="test" onclick="test()">test</button>
 
 </body>
 </html>
