@@ -35,37 +35,32 @@ Your browser does not support the HTML5 canvas tag.
     var image;
     
 //     window.onload = function() {
-    function startCanvas() {
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
-    var body = document.getElementById("body");
-    var eyes = document.getElementById("eyes");
-    var mouth = document.getElementById("mouth");
-    ctx.drawImage(body, 0,0);
-    ctx.drawImage(eyes, 0,0);
-    ctx.drawImage(mouth, 0,0);
+        function startCanvas() {
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        var body = document.getElementById("body");
+        var eyes = document.getElementById("eyes");
+        var mouth = document.getElementById("mouth");
+        ctx.drawImage(body, 0,0);
+        ctx.drawImage(eyes, 0,0);
+        ctx.drawImage(mouth, 0,0);
         image = canvas.toDataURL("image/png");
-//     window.location = canvas.toDataURL("image/png");
     };
     
     function download() {
 //         var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
 //         window.location.href = image;
         document.getElementById("x").src=image;
-        document.getElementById("button").innerHTML = "done";
-//         window.location = canvas.toDataURL("image/png");
     };
     
     function test() {
-        document.getElementById("x").src="https://unsplash.com/photos/5Oe8KFH5998/download";
-        document.getElementById("test").innerHTML = "test done";
+        document.write('<img src="'+image+'"/>');
     };
 </script>    
 
-<h1>placeholder end</h1>
-<button class="button startCanvas" id="button_start" onclick="startCanvas()">Start</button>
-<button class="button download" id="button" onclick="download()">Download</button>
-<button class="button test" id="test" onclick="test()">test</button>
+<button class="button startCanvas" id="button_start" onclick="startCanvas()">Create</button>
+<button class="button test" id="button_test" onclick="test()">TEST</button>
+<button class="button download" id="button_download" onclick="download()">Combine</button>
 
 </body>
 </html>
