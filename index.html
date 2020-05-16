@@ -27,15 +27,15 @@
 <img id="x">
 
 
-<canvas id="myCanvas" width="256" height="256">
+<canvas id="canvasMain" width="256" height="256">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <script>
     var image;
     
-    function renderCanvas() {
-        var canvas = document.getElementById("myCanvas");
+    function refreshCanvasMain() {
+        var canvas = document.getElementById("canvasMain");
         var ctx = canvas.getContext("2d");
         var body = document.getElementById("body");
         var eyes = document.getElementById("eyes");
@@ -44,13 +44,9 @@ Your browser does not support the HTML5 canvas tag.
         ctx.drawImage(eyes, 0,0);
         ctx.drawImage(mouth, 0,0);
         image = canvas.toDataURL("image/png");
+        ctx.drawImage(https://img.icons8.com/material/4ac144/256/twitter.png, 0,0);
     };
     
-//     function download1() {
-//         var image1 = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-//         document.write = image1;
-// //         document.getElementById("x").src=image;
-//     };
     
     function download() {
         document.write('<img src="'+image+'"/>');
@@ -58,17 +54,10 @@ Your browser does not support the HTML5 canvas tag.
     
     window.onload = renderCanvas();
     
-    function download1() {
-        var download = document.getElementById("placeholder");
-        var image1 = document.getElementById("myCanvas").toDataURL("image/png").replace("image/png", "image/octet-stream");
-        download.setAttribute("href", image1);
-        //download.setAttribute("download","archive.png");
-    };
 </script>    
 
 <button class="button renderCanvas" id="button_render" onclick="renderCanvas()">Render</button>
 <button class="button download" id="button_download" onclick="download()">Download</button>
-<button class="button download1" id="button_download1" onclick="download1()">Download 1</button>
 
 </body>
 </html>
