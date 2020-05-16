@@ -19,7 +19,7 @@
 </head>
 <body>
     
-    <h1>placeholder start</h1><br></br></br>
+    <h1>placeholder start 101</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body">
 <img src="/pictures/eyes.png" id="eyes">
@@ -40,8 +40,8 @@ Your browser does not support the HTML5 canvas tag.
     ctx.drawImage(eyes, 0,0);
     ctx.drawImage(mouth, 0,0);
 //     window.location = canvas.toDataURL("image/png");
-//     window.location = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-//     window.location.href = image;
+    window.location = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = image;
     };
     
     function download() {
