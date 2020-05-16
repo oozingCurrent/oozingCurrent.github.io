@@ -24,10 +24,10 @@
 <img src="/pictures/body.png" id="body">
 <img src="/pictures/eyes.png" id="eyes">
 <img src="/pictures/mouth.png" id="mouth">
-<img id="x">
+<img src="https://img.icons8.com/material/4ac144/256/twitter.png" id="twitter">
 
 
-<canvas id="canvasMain" width="256" height="256">
+<canvas id="canvasMain" width="720" height="720">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
@@ -40,11 +40,12 @@ Your browser does not support the HTML5 canvas tag.
         var body = document.getElementById("body");
         var eyes = document.getElementById("eyes");
         var mouth = document.getElementById("mouth");
+        var twitter = document.getElementById("twitter");
         ctx.drawImage(body, 0,0);
         ctx.drawImage(eyes, 0,0);
         ctx.drawImage(mouth, 0,0);
+        ctx.drawImage(twitter, 0,0);
         image = canvas.toDataURL("image/png");
-        ctx.drawImage("https://img.icons8.com/material/4ac144/256/twitter.png", 0,0);
     };
     
     
