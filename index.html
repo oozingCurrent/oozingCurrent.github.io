@@ -6,7 +6,7 @@
 </head>
 <body>
     
-<h1 id="placeholder">placeholder</h1><br></br></br>
+<h1 id="placeholder 1">placeholder</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body">
 <img src="/pictures/eyes.png" id="eyes">
@@ -28,7 +28,7 @@ Your browser does not support the HTML5 canvas tag.
         ctx.drawImage(body, 0,0);
         ctx.drawImage(eyes, 0,0);
         ctx.drawImage(mouth, 0,0);
-//         image = canvas.toDataURL("image/png");
+        image = canvas.toDataURL("image/png");
     };
     
     
@@ -36,8 +36,8 @@ Your browser does not support the HTML5 canvas tag.
         document.write('<img src="'+image+'"/>');
     };
     
-//     window.onload = refreshCanvas();
-    
+    window.onload = refreshCanvas();
+   
 </script>    
 
 <button class="button refreshCanvas" id="button_refresh" onclick="refreshCanvas()">Render</button>
