@@ -6,7 +6,7 @@
 </head>
 <body>
     
-<h1 id="placeholder">placeholder 3</h1><br></br></br>
+<h1 id="placeholder">placeholder 4</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body">
 <img src="/pictures/eyes.png" id="eyes">
@@ -27,8 +27,8 @@ Your browser does not support the HTML5 canvas tag.
         var mouth = document.getElementById("mouth");
         ctx.drawImage(body, 0,0);
         ctx.drawImage(eyes, 0,0);
-        ctx.drawImage(mouth, 0,0);
         image = canvas.toDataURL("image/png");
+        ctx.drawImage(mouth, 0,0);
     };
     
     
