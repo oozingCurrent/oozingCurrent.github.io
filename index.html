@@ -19,13 +19,11 @@
 </head>
 <body>
     
-    <h1 id="placeholder">placeholder start</h1><br></br></br>
+<h1 id="placeholder">placeholder start</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body">
 <img src="/pictures/eyes.png" id="eyes">
 <img src="/pictures/mouth.png" id="mouth">
-<img src="https://img.icons8.com/material/4ac144/256/twitter.png" id="twitter">
-
 
 <canvas id="canvasMain" width="300" height="300">
 Your browser does not support the HTML5 canvas tag.
@@ -40,11 +38,9 @@ Your browser does not support the HTML5 canvas tag.
         var body = document.getElementById("body");
         var eyes = document.getElementById("eyes");
         var mouth = document.getElementById("mouth");
-        var twitter = document.getElementById("twitter");
         ctx.drawImage(body, 0,0);
         ctx.drawImage(eyes, 0,0);
         ctx.drawImage(mouth, 0,0);
-        ctx.drawImage(twitter, 0,0);
         image = canvas.toDataURL("image/png");
     };
     
@@ -57,7 +53,7 @@ Your browser does not support the HTML5 canvas tag.
     
 </script>    
 
-<button class="button renderCanvas" id="button_render" onclick="renderCanvas()">Render</button>
+<button class="button refreshCanvas" id="button_refresh" onclick="refreshCanvas()">Render</button>
 <button class="button download" id="button_download" onclick="download()">Download</button>
 
 </body>
