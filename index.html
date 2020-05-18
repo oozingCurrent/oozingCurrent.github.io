@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Project Placeholder</title>
-</head>
+<head><meta charset="utf-8"><title>Project Placeholder</title></head>
 <body>
     
-<h1 id="placeholder">placeholder 1</h1><br></br></br>
+<h1 id="placeholder">canvas selection 1</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body">
 <img src="/pictures/eyes.png" id="eyes">
 <img src="/pictures/mouth.png" id="mouth">
 </br>
 
-<canvas id="canvasMain" width="256" height="256">
-Your browser does not support the HTML5 canvas tag.
-</canvas>
+<canvas id="canvasMain" width="256" height="256" style="border:3px solid #ff0000;">
+Your browser does not support the HTML5 canvas tag.</canvas></br>
+
+<canvas id="canvasSelection" width="256" height="256" style="border:3px solid #0000ff;">
+Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
     var image;
@@ -32,6 +31,17 @@ Your browser does not support the HTML5 canvas tag.
         ctx.drawImage(mouth, 0,0);
     };
     
+    function refreshCanvasSelection() {
+        var canvas = document.getElementById("canvasSelection");
+        var ctx = canvas.getContext("2d");
+        var body = document.getElementById("body");
+        var eyes = document.getElementById("eyes");
+        var mouth = document.getElementById("mouth");
+        ctx.drawImage(body, 0,0);
+        ctx.drawImage(eyes, 0,0);
+        image = canvas.toDataURL("image/png");
+        ctx.drawImage(mouth, 0,0);
+    };
     
     function download() {
         document.write('<img src="'+image+'"/>');
@@ -42,8 +52,9 @@ Your browser does not support the HTML5 canvas tag.
 </script>    
 
 </br>
-<button class="button-refreshCanvas" id="button_refresh" onclick="refreshCanvasMain()">Render</button>
+<button class="button-refresh-canvas-main" id="button_refresh_canvas_main" onclick="refreshCanvasMain()">Refresh Main</button>
 <button class="button-download" id="button_download" onclick="download()">Download</button>
+<button class="button-refresh-canvas-selection" id="button_refresh_canvas_selection" onclick="refreshCanvasSelection()">Render Selection</button>
 
 </body>
 </html>
