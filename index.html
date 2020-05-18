@@ -3,17 +3,17 @@
 <head><meta charset="utf-8"><title>Project Placeholder</title></head>
 <body>
     
-<h1 id="placeholder">canvas selection 1</h1><br></br></br>
+<h1 id="placeholder">canvas selection 2</h1><br></br></br>
 
-<img src="/pictures/body.png" id="body">
-<img src="/pictures/eyes.png" id="eyes">
-<img src="/pictures/mouth.png" id="mouth">
+<img src="/pictures/body.png" id="body" style=”display:none”>
+<img src="/pictures/eyes.png" id="eyes" style=”display:none”>
+<img src="/pictures/mouth.png" id="mouth" style=”display:none”>
 </br>
 
 <canvas id="canvasMain" width="256" height="256" style="border:3px solid #ff0000;">
 Your browser does not support the HTML5 canvas tag.</canvas></br>
 
-<canvas id="canvasSelection" width="256" height="256" style="border:3px solid #0000ff;">
+<canvas id="canvasSelection" width="256" height="64" style="border:3px solid #0000ff;">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
@@ -48,6 +48,7 @@ Your browser does not support the HTML5 canvas tag.</canvas>
     };
     
     window.onload = refreshCanvasMain();
+    window.onload = refreshCanvasSelection();
    
 </script>    
 
