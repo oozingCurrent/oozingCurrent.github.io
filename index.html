@@ -6,7 +6,7 @@ title: placeholder
 <head><meta charset="utf-8"><title>{{ page.title }}</title></head>
 <body>
     
-<h1 id="placeholder">canvas selection 6</h1><br></br></br>
+<h1 id="placeholder">canvas selection</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body" style=”display:none”>
 <img src="/pictures/eyes.png" id="eyes" style=”display:none”>
@@ -21,6 +21,9 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
     var image;
+    var layerTop = ["/pictures/body.png", "/pictures/eyes.png", "/pictures/mouth.png"];
+    var layerMed = ["/pictures/body.png", "/pictures/eyes.png", "/pictures/mouth.png"];
+    var layerBot = ["/pictures/body.png", "/pictures/eyes.png", "/pictures/mouth.png"];
     
     function toArray(list) {
         return Array.prototype.slice.call(list || [], 0);
@@ -76,21 +79,24 @@ Your browser does not support the HTML5 canvas tag.</canvas>
     function refreshCanvasSelection() {
         var canvas = document.getElementById("canvasSelection");
         var ctx = canvas.getContext("2d");
-        var body = document.getElementById("body");
-        var eyes = document.getElementById("eyes");
-        var mouth = document.getElementById("mouth");
+//         var body = document.getElementById("body");
+//         var eyes = document.getElementById("eyes");
+//         var mouth = document.getElementById("mouth");
+//         var bot = document.getElementById("layer");
+//         var med = document.getElementById("eyes");
+//         var top = document.getElementById("mouth");
         var imageSize = 64;
-        ctx.drawImage(body, 0,0, imageSize, imageSize);
-        ctx.drawImage(eyes, 64,0, imageSize, imageSize);
-        ctx.drawImage(mouth, 128,0, imageSize, imageSize);
+        ctx.drawImage(layerBot[0], 0,0, imageSize, imageSize);
+        ctx.drawImage(layerMed[0], 64,0, imageSize, imageSize);
+        ctx.drawImage(layerTop[0], 128,0, imageSize, imageSize);
     };
     
     function download() {
         document.write('<img src="'+image+'"/>');
     };
     
-    window.onload = refreshCanvasMain();
-    window.onload = refreshCanvasSelection();
+//     window.onload = refreshCanvasMain();
+//     window.onload = refreshCanvasSelection();
    
 </script>    
 
