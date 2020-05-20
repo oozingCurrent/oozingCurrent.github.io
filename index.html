@@ -6,7 +6,7 @@ title: placeholder
 <head><meta charset="utf-8"><title>{{ page.title }}</title></head>
 <body>
     
-<h1 id="placeholder">canvas selection</h1><br></br></br>
+<h1 id="placeholder">canvas selection 1</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body" style=”display:none”>
 <img src="/pictures/eyes.png" id="eyes" style=”display:none”>
@@ -21,6 +21,9 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script>
     var image;
+    
+    var imageForCanvas = new Image();
+    
     var layerTop = ["/pictures/body.png", "/pictures/eyes.png", "/pictures/mouth.png"];
     var layerMed = ["/pictures/body.png", "/pictures/eyes.png", "/pictures/mouth.png"];
     var layerBot = ["/pictures/body.png", "/pictures/eyes.png", "/pictures/mouth.png"];
@@ -86,9 +89,12 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 //         var med = document.getElementById("eyes");
 //         var top = document.getElementById("mouth");
         var imageSize = 64;
-        ctx.drawImage(layerBot[0], 0,0, imageSize, imageSize);
-        ctx.drawImage(layerMed[0], 64,0, imageSize, imageSize);
-        ctx.drawImage(layerTop[0], 128,0, imageSize, imageSize);
+        imageForCanvas.src = layerTop[0];
+        ctx.drawImage(imageForCanvas, 0,0, imageSize, imageSize);
+        imageForCanvas.src = layerTop[Math.floor((Math.random() * 3) + 1)];
+        ctx.drawImage(imageForCanvas, 64,0, imageSize, imageSize);
+        imageForCanvas.src = layerTop[Math.floor((Math.random() * 3) + 1)];
+        ctx.drawImage(imageForCanvas, 128,0, imageSize, imageSize);
     };
     
     function download() {
