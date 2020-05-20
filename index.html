@@ -6,7 +6,7 @@ title: placeholder
 <head><meta charset="utf-8"><title>{{ page.title }}</title></head>
 <body>
     
-<h1 id="placeholder">canvas selection 2</h1><br></br></br>
+<h1 id="placeholder">canvas selection 3</h1><br></br></br>
 
 <img src="/pictures/body.png" id="body" style=”display:none”>
 <img src="/pictures/eyes.png" id="eyes" style=”display:none”>
@@ -89,13 +89,20 @@ Your browser does not support the HTML5 canvas tag.</canvas>
 //         var med = document.getElementById("eyes");
 //         var top = document.getElementById("mouth");
         var imageSize = 64;
-        imageForCanvas.src = layerTop[0];
-        ctx.drawImage(imageForCanvas, 0,0, imageSize, imageSize);
-        imageForCanvas.src = layerTop[Math.floor((Math.random() * 3))];
-        ctx.drawImage(imageForCanvas, 64,0, imageSize, imageSize);
-        imageForCanvas.src = layerTop[Math.floor((Math.random() * 3))];
-        ctx.drawImage(imageForCanvas, 128,0, imageSize, imageSize);
+        
+        layerTop.forEach(displayItemList);
+//         imageForCanvas.src = layerTop[0];
+//         ctx.drawImage(imageForCanvas, 0,0, imageSize, imageSize);
+//         imageForCanvas.src = layerTop[Math.floor((Math.random() * 3))];
+//         ctx.drawImage(imageForCanvas, 64,0, imageSize, imageSize);
+//         imageForCanvas.src = layerTop[Math.floor((Math.random() * 3))];
+//         ctx.drawImage(imageForCanvas, 128,0, imageSize, imageSize);
     };
+    
+    function displayItemList(item, index){
+        imageForCanvas.src = item;
+        ctx.drawImage(imageForCanvas, index*64 ,0, imageSize, imageSize);
+    }
     
     function download() {
         document.write('<img src="'+image+'"/>');
