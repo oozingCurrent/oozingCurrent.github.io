@@ -1,8 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"><title>project placeholder</title></head>
-<body>
+<head>
+
+<meta charset="utf-8">
+<title>project placeholder</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: Arial;
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
     
+/*  menu    */
+    
+div.menu {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+    width: 256px;
+}
+
+div.menu a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+}
+
+div.menu a:hover {
+    background-color: #777;
+}
+</style>
+    
+</head>
+<body>
+
 <h1 id="placeholder">canvas selection</h1><br>
 <p id="status1">status 1: </p>
 <p id="status2">status 2: </p>
@@ -11,15 +62,47 @@
 
 <canvas id="canvasMain" width="256" height="256" style="border:3px solid #ff0000;">
 Your browser does not support the HTML5 canvas tag.</canvas><br>
-
+    
+<div class="menu">
+    <a href="#home"><i class="fa fa-picture-o "></i></a>
+    <a href="#news"><i class="fa fa-search"></i>head</a>
+    <a href="#contact"><i class="fa fa-search"></i>hair</a>
+    <a href="#about"><i class="fa fa-search"></i>bangs</a>
+    <a href="#support"><i class="fa fa-search"></i>pigtails</a>
+    <a href="#blog"><i class="fa fa-eercast"></i></a>
+    <a href="#tools"><i class="fa fa-search"></i>pupils</a>  
+    <a href="#base"><i class="fa fa-search"></i>mouth</a>
+    <a href="#custom"><i class="fa fa-search"></i>glasses</a>
+    <a href="#more"><i class="fa fa-search"></i>freckles</a>
+    <a href="#logo"><i class="fa fa-search"></i>makeUp</a>
+    <a href="#friends"><i class="fa fa-search"></i>clothes</a>
+    <a href="#partners"><i class="fa fa-search"></i>Partners</a>
+    <a href="#people"><i class="fa fa-search"></i>hat</a>
+    <a href="#work"><i class="fa fa-search"></i>accessories</a>
+</div>
+    
+    
 <canvas id="canvasSelection" width="" height="64" style="border:3px solid #0000ff;">
 Your browser does not support the HTML5 canvas tag.</canvas>
-
+    
+<br>
+<button class="button-refresh-canvas-main" id="button_refresh_canvas_main" onclick="refreshCanvasMain()">Refresh Main</button>
+<button class="button-download" id="button_download" onclick="download()">Download</button>
+<button class="button-refresh-canvas-selection" id="button_refresh_canvas_selection" onclick="refreshCanvasSelection()">Render Selection</button>
+<button class="button-select" id="button_select" onclick="selectPicture()">select</button>
+    
 <script>
-    var image;
+    var imageForDownload;
     var selectionImageSize = 64;
     var imageForCanvas = new Image();
-    var images = ["/pictures/body.png", "/pictures/eyes.png", "/pictures/mouth.png"];
+    
+    var imageSources = ["/pictures/body.png", "/pictures/eyes.png", "/pictures/mouth.png"]; 
+    var images = new Array();
+    for (i = 0; i < imageSources.length; i++){
+        images[i] = new Image();
+        images[i].src = imageSources[i];
+    }
+    
     
 //    function toArray(list) {
 //        return Array.prototype.slice.call(list || [], 0);
@@ -62,54 +145,55 @@ Your browser does not support the HTML5 canvas tag.</canvas>
     
     function refreshCanvasMain() {
         var canvas = document.getElementById("canvasMain");
-        var ctx = canvas.getContext("2d");
-        imageForCanvas.src = images[0];
-        ctx.drawImage(imageForCanvas, 0,0);
-        imageForCanvas.src = images[1];
-        ctx.drawImage(imageForCanvas, 0,0);
-        imageForCanvas.src = images[2];
-        ctx.drawImage(imageForCanvas, 0,0);
+        var context = canvas.getContext("2d");
         
-        image = canvas.toDataURL("image/png");
+        document.getElementById("status3").innerHTML ="status 3: ";
+        
+        for (i = 0; i < imageSources.length; i++) {
+             document.getElementById("status3").innerHTML += i + ": ok (" +imageSources.length+ ")... ";
+             imageForCanvas.src = imageSources[i];
+             context.drawImage(imageForCanvas,0 ,0);
+        }
+        
+        imageForDownload = canvas.toDataURL("image/png");
+
     };
     
     function refreshCanvasSelection() {
         var canvas = document.getElementById("canvasSelection");
-        var ctx = canvas.getContext("2d");
+        var context = canvas.getContext("2d");
         var imageSize = selectionImageSize;
         
         document.getElementById("status1").innerHTML ="status 1: ";
         
+//        for (i = 0; i < imageSources.length; i++) {
+//             document.getElementById("status1").innerHTML += i + ": ok (" +imageSources.length+ ")... ";
+//             imageForCanvas.src = imageSources[i];
+//             ctx.drawImage(imageForCanvas, i*64 ,0, imageSize, imageSize);
+//        }
         for (i = 0; i < images.length; i++) {
-             document.getElementById("status1").innerHTML += i + ": ok (" +images.length+ ")... ";
-             imageForCanvas.src = images[i];
-             ctx.drawImage(imageForCanvas, i*64 ,0, imageSize, imageSize);
+             document.getElementById("status1").innerHTML += i + ": OK (" +imageSources.length+ ")... ";
+             context.drawImage(images[i], i*64 ,0, imageSize, imageSize);
         }
         
-//        imageForCanvas.src = images[0];
-//        ctx.drawImage(imageForCanvas, 0,0, imageSize, imageSize);
-//        imageForCanvas.src = images[Math.floor((Math.random() * 3))];
-//        ctx.drawImage(imageForCanvas, 64,0, imageSize, imageSize);
-//        imageForCanvas.src = images[Math.floor((Math.random() * 3))];
-//        ctx.drawImage(imageForCanvas, 128,0, imageSize, imageSize);
     };
+    
+    function selectPicture() {
+        document.getElementById("canvasSelection");
+    }
     
     function download() {
-        document.write('<img src="'+image+'"/>');
+        document.write('<img src="'+imageForDownload+'"/>');
     };
     
-    document.getElementById("status2").innerHTML += images.length + 1;
-    document.getElementById("canvasSelection").width = selectionImageSize * (images.length);
+    document.getElementById("status2").innerHTML += imageSources.length;
+    document.getElementById("canvasSelection").width = selectionImageSize * (imageSources.length);
     
 //     window.onload = refreshCanvasMain();
 //     window.onload = refreshCanvasSelection();
    
 </script>    
-
-<br>
-<button class="button-refresh-canvas-main" id="button_refresh_canvas_main" onclick="refreshCanvasMain()">Refresh Main</button>
-<button class="button-download" id="button_download" onclick="download()">Download</button>
-<button class="button-refresh-canvas-selection" id="button_refresh_canvas_selection" onclick="refreshCanvasSelection()">Render Selection</button>
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
 
 </body>
 </html>
