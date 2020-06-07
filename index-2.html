@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<title>project placeholder 2</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+</head>
+<body>
+
+
+<canvas id="canvas" width="600" height="600">Your browser does not support the HTML5 canvas tag.</canvas><br>
+    
+<div class="menu">
+    <span class="menu-layers">
+        <a href="javascript:filterSelection('back')">back</a>
+        <a href="javascript:filterSelection('mid')">mid</a>
+        <a href="javascript:filterSelection('front')">front</a>
+    </span>
+    <span class="menu-download">
+        <a href="javascript:download()" class="download"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i></a>
+    </span>
+</div>
+<div class="items"></div>
+    
+<script type="text/javascript">    
+
+
+var imageFinal;
+// start with blank image
+var imageSourcesBack = ["layers/back/1.png", "layers/back/2.png", "layers/back/3.png", "layers/back/red.png", "layers/back/green.png"];
+var imageSourcesMid = ["layers/mid/1.png", "layers/mid/2.png", "layers/mid/3.png"];
+var imageSourcesFront = ["layers/front/1.png", "layers/front/2.png", "layers/front/3.png"];
+    
+var images = new Array();
+for (i = 0; i < 3; i++){
+    images[i] = new Image();
+}
+    
+function refreshCanvas() {
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (i = 0; i < images.length; i++) {
+        context.drawImage(images[i],0 ,0, canvas.width, canvas.height);
+    }
+//    imageFinal = canvas.toDataURL("image/png");
+}
+
+function filterSelection(layer) {
+    var layer1 = document.getElementsByClassName("back");
+    var layer2 = document.getElementsByClassName("mid");
+    var layer3 = document.getElementsByClassName("front");
+    
+    if(layer == "back"){
+        for(i=0; i<layer1.length; i++)
+            layer1[i].setAttribute("style","display: inline;");
+        for(i=0; i<layer2.length; i++)
+            layer2[i].setAttribute("style","display: none;");
+        for(i=0; i<layer3.length; i++)
+            layer3[i].setAttribute("style","display: none;");
+    }
+    
+    else if(layer == "mid"){
+        for(i=0; i<layer1.length; i++)
+            layer1[i].setAttribute("style","display: none;");
+        for(i=0; i<layer2.length; i++)
+            layer2[i].setAttribute("style","display: inline;");
+        for(i=0; i<layer3.length; i++)
+            layer3[i].setAttribute("style","display: none;");
+    }
+    
+    else if(layer == "front"){
+        for(i=0; i<layer1.length; i++)
+            layer1[i].setAttribute("style","display: none;");
+        for(i=0; i<layer2.length; i++)
+            layer2[i].setAttribute("style","display: none;");
+        for(i=0; i<layer3.length; i++)
+            layer3[i].setAttribute("style","display: inline;");
+    }
+}
+
+function download() {
+//    document.write('<img src="'+imageFinal+'"/>');
+}
+
+function loadAssets(imgSources, layer){
+    for(i=0; i<imgSources.length; i++){
+        var item = document.createElement("IMG");
+        item.src = imgSources[i];
+        item.setAttribute("class", layer +  " item");
+        item.setAttribute("onclick", "javascript:setCanvasLayer(this, '"+ layer +"')");
+        document.querySelector(".items").appendChild(item);
+    }
+}
+
+function setCanvasLayer(image, layer){
+    var x;
+    if(layer == "mid")
+        x = 1;
+    else if(layer == "front")
+        x = 2;
+    else
+        x = 0;
+    images[x]=image;
+    refreshCanvas();
+}
+    
+function init(){
+    images[0].src = imageSourcesBack[0];
+    images[1].src = imageSourcesMid[0];
+    images[2].src = imageSourcesFront[0];
+
+    loadAssets(imageSourcesBack, "back");
+    loadAssets(imageSourcesMid, "mid");
+    loadAssets(imageSourcesFront, "front");
+
+    filterSelection("back");
+}
+
+document.onload = init();    
+
+</script>    
+<noscript>Sorry, your browser does not support JavaScript!</noscript>
+
+    
+</body>
+</html>
