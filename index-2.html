@@ -7,8 +7,8 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-    * {
-    box-sizing: border-box;
+ * {
+/*    box-sizing: border-box;*/
 /*    max-width: 600px;*/
 }
 
@@ -20,10 +20,9 @@ body {
     margin: auto;
 }
 
-/* Center website */
-.main {
-/*  max-width: 1000px;*/
-/*  margin: auto;*/
+canvas {
+    width: 600px;
+    height: 600px;
 }
 
 h1 {
@@ -46,6 +45,7 @@ div.menu a {
     padding: 14px;
     text-decoration: none;
 }
+
 div.menu a.download {
     font-size: 30px;
     padding: 0px;
@@ -56,22 +56,19 @@ div.menu a.download {
 div.menu a:hover {
     background-color: #777;
 }
+
 div.menu a:active {
     background-color: #657;
 }
     
 .item {
-    background-color: whitesmoke;
-    padding: 5px;
-    width: 20%;
-}
-
-img {
-    width: 100%;
+/*    background-color: whitesmoke;*/
+    padding: 1%;
+    width: 18%;
 }
     
-.item :hover {
-     transform: scale(2);
+.items :hover {
+     transform: scale(1.1);
 }
     
 </style>    
@@ -81,7 +78,7 @@ img {
 
    <h1>:-)</h1>
 
-<canvas id="canvas" width="600" height="600">Your browser does not support the HTML5 canvas tag.</canvas><br>
+<canvas id="canvas">Your browser does not support the HTML5 canvas tag.</canvas><br>
     
 <div class="menu">
     <span class="menu-layers">
