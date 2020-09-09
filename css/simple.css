@@ -19,6 +19,28 @@ img {
     border: none; 
 }
 
+div.mid{
+    text-align: center;
+}
+
+div.navbar {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.navbar-secondary{
+    display: inline-block;
+    text-align: justify;
+    /* width: 100%; */
+}
+
+a.title {
+    width: 100%;
+    text-align: justify;
+    text-decoration: none;
+}
+
 div.img-container{
     border-radius: 2%/5%;
     float:right;
@@ -74,10 +96,6 @@ div.date {
     pre {
         font-size: 11px;
     }
-}
-
-.title {
-    text-decoration: none;
 }
 
 img.pixel, canvas.pixel {
