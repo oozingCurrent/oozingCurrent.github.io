@@ -1,17 +1,23 @@
 body {
-    font-family: Consolas,
-                 Monospace, /* Linux = DejaVu Sans Mono */
-                 Courier;   /* MacOSX & Windows = Courier */
+    font-family:
+                'Courier New',
+                'PT Mono',
+                Consolas,
+                Monospace, /* Linux = DejaVu Sans Mono */
+                Courier;   /* MacOSX & Windows = Courier */
     font-size: 16px;              
     max-width: 800px;   /* For Desktop PC (see @media for Tablets/Phones) */
     padding-left: 5%;
     padding-right: 5%;
     margin: 0 auto;
-    background: #F5F5F0;
+    /* background: #F5F5F0; */
+    background: rgb(32, 32, 32);
+    color: rgb(238, 238, 229);
 } 
   
 a {
-    color: black;
+    /* color: black; */
+    color: rgb(238, 238, 229);
     font-weight: bold;
 }
 
@@ -19,7 +25,7 @@ img {
     border: none; 
 }
 
-div.mid{
+.mid{
     text-align: center;
 }
 
@@ -44,13 +50,14 @@ a.title {
 div.img-container{
     border-radius: 2%/5%;
     float:right;
-    background-color: white;
+    /* background-color:white; */
+    background-color:rgb(238, 238, 229);
     margin-left: 2%;
     margin-bottom: 1%;
     width: 27%;
     height:auto;
     box-sizing: border-box;
-    border: 1px black solid;
+    border: 2px black solid;
     padding: 1%;
 }
 
